@@ -34,7 +34,7 @@ function App() {
     <main>
       <section className='featured'>
 
-        {featuredHeroesList.map(({ name, imgUrl, powerstats }) => (
+        {featuredHeroesList?.map(({ name, imgUrl, powerstats }) => (
           <div className='featured__hero'>
             <h2>{name}</h2>
             <img src={imgUrl} alt={`${name}`} />
