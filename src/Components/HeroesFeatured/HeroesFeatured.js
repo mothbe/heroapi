@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getBasicHeroInfoById } from '../../requests';
 import './HeroesFeatured.css';
+import HeroSimplified from '../HeroSimplified/HeroSimplified';
 
 const featuredHeroesIds = [10, 502, 505]
 
@@ -29,27 +30,7 @@ function HeroesFeatured() {
     return (
         <section className='featured'>
             {featuredHeroesList?.map(({ name, imgUrl, powerstats }) => (
-                <div className='featured__hero'>
-                    <h2>{name}</h2>
-                    <img src={imgUrl} alt={`${name}`} />
-                    <div className='featured__hero__stats'>
-                        <div>
-                            <p>{powerstats.combat}</p>
-                        </div>
-                        <div>
-                            <p>{powerstats.durability}</p>
-                        </div>
-                        <div>
-                            <p>{powerstats.intelligence}</p>
-                        </div>
-                        <div>
-                            <p>{powerstats.speed}</p>
-                        </div>
-                        <div>
-                            <p>{powerstats.strength}</p>
-                        </div>
-                    </div>
-                </div>
+                <HeroSimplified name={name} imgUrl={imgUrl} powerstats={powerstats} />
             ))}
         </section>
     );
