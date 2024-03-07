@@ -1,13 +1,13 @@
 import './App.css';
 import Nav from './Components/Nav/Nav'
-import HeroFeatured from './Components/HeroFeatured/HeroFeatured';
+import HeroesFeatured from './Components/HeroesFeatured/HeroesFeatured';
 
 function App() {
   return (
     <>
     <Nav></Nav>
     <main>
-      <HeroFeatured />
+      <HeroesFeatured />
     </main>
     <footer></footer>
     </>

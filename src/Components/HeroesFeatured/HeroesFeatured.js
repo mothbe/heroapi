@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { getBasicHeroInfoById } from '../../requests';
-import './HeroFeatured.css';
+import './HeroesFeatured.css';
 
 const featuredHeroesIds = [10, 502, 505]
 
-function HeroFeatured() {
+function HeroesFeatured() {
     useEffect(() => {
         fetchAndRenderFeauturedHeroes();
         
@@ -55,4 +55,4 @@ function HeroFeatured() {
     );
 }
 
-export default HeroFeatured;
+export default HeroesFeatured;
