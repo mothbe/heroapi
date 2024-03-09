@@ -6,7 +6,11 @@ import HeroSimplified from '../HeroSimplified/HeroSimplified';
 const featuredHeroesIds = [10, 502, 505]
 
 function HeroesFeatured() {
+
+    const [ isLoading, setLoadingState] = useState(true);
+
     useEffect(() => {
+        setLoadingState(true);
         fetchAndRenderFeauturedHeroes();
         
       }, []);
@@ -25,13 +29,17 @@ function HeroesFeatured() {
     }
     // console.log(heroes);
     setFeaturedHeroesList(heroes);
+    setLoadingState(false);
     }
 
     return (
         <section className='featured'>
-            {featuredHeroesList?.map(({ name, imgUrl, powerstats }) => (
-                <HeroSimplified name={name} imgUrl={imgUrl} powerstats={powerstats} />
-            ))}
+            <h1>Feautured Heroes</h1>
+            <div className="featured__list">
+                {featuredHeroesList?.map(({ name, imgUrl, powerstats }) => (
+                    <HeroSimplified name={name} imgUrl={imgUrl} powerstats={powerstats} />
+                ))}
+            </div>
         </section>
     );
 }
