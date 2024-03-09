@@ -16,11 +16,16 @@ function App() {
         <div className="container">
           <Routes>
             <Route exact path="/" element={<HeroesFeatured />} />
+            <Route path="/search/:name" />
             <Route path="/hero/:id" />
           </Routes>
         </div>
       </main>
-      <footer></footer>
+      <footer>
+        <div className="container">
+          <p>This content is kindly provided by <a href="https://superheroapi.com/">Superhero API</a></p>
+        </div>
+      </footer>
     </Router>
     </>
   );
