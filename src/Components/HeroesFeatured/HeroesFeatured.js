@@ -27,7 +27,7 @@ function HeroesFeatured() {
         const data = await getBasicHeroInfoById(heroId);
         heroes.push(data);
     }
-    console.log(heroes);
+    // console.log(heroes);
     setFeaturedHeroesList(heroes);
     setLoadingState(false);
     }
