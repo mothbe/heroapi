@@ -41,7 +41,9 @@ function SearchView() {
         )
         }
         {
-            isLoading && <Loader />
+            isLoading && <div className='loader-container'>
+                    <Loader />
+                </div>
         }
         </>
     );
