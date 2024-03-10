@@ -5,16 +5,20 @@ import strength from '../../assets/icons/fist.svg';
 import speed from '../../assets/icons/speedometer.svg';
 import intelligence from '../../assets/icons/thinking.svg';
 import './HeroSimplified.css';
+import {
+    Link
+} from 'react-router-dom';
 
-function HeroSimplified({ name, imgUrl, powerstats }) {
+function HeroSimplified({ name, imgUrl, powerstats, id }) {
+
     return (
         <div className='featured__hero'>
             <h2>{name}</h2>
+            <Link to={`/hero/${id}`}>
             <img src={imgUrl} alt={`${name}`} />
+            </Link>
             <div className='featured__hero__stats'>
                 <div>
-                    {/* <icon.combat /> */}
-                    {/* <img className='featured__hero__stats__icon' src="../../assets/icons/boxing.svg" alt="combat icon" /> */}
                     <img className='featured__hero__stats__icon' src={combat} alt="combat icon" />
                     <p>{powerstats.combat}</p>
                 </div>

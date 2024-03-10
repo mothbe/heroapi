@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { getBasicHeroInfoById } from '../../requests';
 import './HeroesFeatured.css';
 import HeroSimplified from '../HeroSimplified/HeroSimplified';
-import Loader from '../Loader/Loader';
 
 const featuredHeroesIds = [10, 502, 505]
 
@@ -28,7 +27,7 @@ function HeroesFeatured() {
         const data = await getBasicHeroInfoById(heroId);
         heroes.push(data);
     }
-    // console.log(heroes);
+    console.log(heroes);
     setFeaturedHeroesList(heroes);
     setLoadingState(false);
     }
@@ -39,15 +38,15 @@ function HeroesFeatured() {
             {
             !isLoading && (
                 <div className="featured__list">
-                    {featuredHeroesList?.map(({ name, imgUrl, powerstats }) => (
-                        <HeroSimplified name={name} imgUrl={imgUrl} powerstats={powerstats} />
+                    {featuredHeroesList?.map(({ name, imgUrl, powerstats, id }) => (
+                        <HeroSimplified key={id} name={name} imgUrl={imgUrl} powerstats={powerstats} id={id} />
                     ))}
                 </div>
             )
             }
             {
                 isLoading && <div className='loader-container'>
-                        <Loader />
+
                     </div>
             }
         </section>

@@ -33,8 +33,8 @@ function SearchView() {
         <>
         {
         !isLoading && ( <section className='search'>
-            {searchList?.map(({ name, image, powerstats }) =>
-                <HeroSimplified name={name} imgUrl={image.url} powerstats={powerstats} />
+            {searchList?.map(({ name, image, powerstats, id }) =>
+                <HeroSimplified key={id} name={name} imgUrl={image.url} powerstats={powerstats} id={id} />
                 // console.log(`${name}, ${image.url}, ${powerstats.combat}`)
             )}
         </section>

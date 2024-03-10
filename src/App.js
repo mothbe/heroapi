@@ -7,6 +7,7 @@ import {
   Route,
 } from 'react-router-dom';
 import SearchView from './Components/SearchView/SearchView';
+import HeroDetails from './Components/HeroDetails/HeroDetails';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<HeroesFeatured />} />
             <Route path="/search/:name" element={<SearchView />} />
-            <Route path="/hero/:id" />
+            <Route path="/hero/:id" element={<HeroDetails />} />
           </Routes>
         </div>
       </main>
