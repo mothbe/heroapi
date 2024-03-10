@@ -14,6 +14,7 @@ import { useParams } from 'react-router';
 
 function HeroDetails() {
     const [ isLoading, setLoadingState] = useState(true);
+    const [ isError, setErrorState ] = useState(false);
     const [ hero, setHeroDetails] = useState();
     const { id } = useParams();
 
@@ -22,8 +23,11 @@ function HeroDetails() {
         getHeroDetailsById(id).then(searchResults => {
             const { data } = searchResults;
 
-            if (data.error) {
-                return ;
+            if (data.response === 'error') {
+                // return ;
+                console.log('set error');
+                setErrorState(true);
+
             }
 
             setHeroDetails(data);
@@ -38,7 +42,10 @@ function HeroDetails() {
         <section className='featured'>
         <h1>Hero Details!</h1>
         {
-        !isLoading && <div className='featured__hero'>
+            isError && <div><h2>No hero found!</h2></div>
+        }
+        {
+        !isLoading && !isError && <div className='featured__hero'>
             <h2>{hero.name}</h2>
             <img src={hero.image.url} alt={`${hero.name}`} />
             <div className='featured__hero__stats'>

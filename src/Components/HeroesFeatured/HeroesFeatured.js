@@ -2,8 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { getBasicHeroInfoById } from '../../requests';
 import './HeroesFeatured.css';
 import HeroSimplified from '../HeroSimplified/HeroSimplified';
+import Loader from '../Loader/Loader';
 
-const featuredHeroesIds = [10, 502, 505]
+// const featuredHeroesIds = [10, 502, 505]
+const maxHeroID = 731;
+
+function getRandomInt(max) {
+    return [ Math.floor(Math.random() * max), Math.floor(Math.random() * max), Math.floor(Math.random() * max) ];
+}
+
+const featuredHeroesIds = getRandomInt(maxHeroID);
 
 function HeroesFeatured() {
 
@@ -19,7 +27,6 @@ function HeroesFeatured() {
     
     const fetchAndRenderFeauturedHeroes = async () => {
     let heroes = [];
-
     for (const heroId of featuredHeroesIds){
         // getBasicHeroInfoById(heroId).then(hero => {
         //   heroes.push(hero);
@@ -46,7 +53,7 @@ function HeroesFeatured() {
             }
             {
                 isLoading && <div className='loader-container'>
-
+                        <Loader />
                     </div>
             }
         </section>
