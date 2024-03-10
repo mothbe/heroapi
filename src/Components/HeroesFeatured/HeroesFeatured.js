@@ -34,7 +34,7 @@ function HeroesFeatured() {
 
     return (
         <section className='featured'>
-            <h1>Feautured Heroes</h1>
+            <h1>Featured Heroes</h1>
             {
             !isLoading && (
                 <div className="featured__list">
